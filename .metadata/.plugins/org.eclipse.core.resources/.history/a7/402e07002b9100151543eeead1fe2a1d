@@ -1,0 +1,30 @@
+package br.edu.qi.loader;
+
+import java.io.File;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		JAXBContext context;
+		try {
+			
+			context = JAXBContext.newInstance(XmlModel.class);
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			String path = args[0];
+			JAXBElement<XmlModel> element = (JAXBElement<XmlModel>) unmarshaller.unmarshal(new File(path));
+			XmlModel model = element.getValue();
+			
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+}

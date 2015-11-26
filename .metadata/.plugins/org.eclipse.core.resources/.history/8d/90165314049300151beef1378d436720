@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmlModel>
+	<instituicoes>
+        <instituicao>
+            <cnpj>00900500339/0001</cnpj>          
+            <email>onda@gamil.com</email>
+            <nome>Onda Animal</nome>
+            <telefone>34175999</telefone>
+            <tipo>ong</tipo>
+        </instituicao>
+        <instituicao>
+            <cnpj>0095847387487/0001</cnpj>           
+            <email>meubixoderua@gamil.com</email>
+            <nome>Meu bixo de rua</nome>
+            <telefone>34715439</telefone>
+            <tipo>ong</tipo>
+        </instituicao>
+    </instituicoes>    
+    <pessoas>
+        <pessoa>
+            <codUsuario>1</codUsuario>
+            <conjuge>Eva da Silva</conjuge>
+            <dataNascimento>2015-11-22T19:28:35.153-02:00</dataNascimento>
+            <deficiente>false</deficiente>
+            <etnia>Negra</etnia>
+            <genero>Masculino</genero>
+            <nomeMae1>Maria da Silva</nomeMae1>
+            <nomePai1>Jo�o da Silva</nomePai1>
+            <nomeSocial>Ad�o da Silva</nomeSocial>
+            <religiao>Jedi</religiao>
+            <telefone>99779977</telefone>
+        </pessoa>
+        <pessoa>
+            <codUsuario>1</codUsuario>
+            <conjuge>Shera da Silva</conjuge>
+            <dataNascimento>2015-11-22T19:28:35.153-02:00</dataNascimento>
+            <deficiente>false</deficiente>
+            <etnia>Oriental</etnia>
+            <genero>Masculino</genero>
+            <nomeMae1>Joana da Silva</nomeMae1>
+            <nomePai1>Mario da Silva</nomePai1>
+            <nomeSocial>Heman da Silva</nomeSocial>
+            <religiao>Trek</religiao>
+            <telefone>839483958</telefone>
+        </pessoa>
+    </pessoas> 
+</xmlModel>

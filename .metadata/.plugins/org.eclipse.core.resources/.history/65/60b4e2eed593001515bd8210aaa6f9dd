@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmlModel>
+    <adocoes>
+        <adocao>
+            <codAnimais>1</codAnimais>
+            <codInstituicao>1</codInstituicao>
+            <codPessoa>1</codPessoa>
+            <date>2015-11-22T19:28:35.149-02:00</date>
+        </adocao>
+    </adocoes>
+</xmlModel>

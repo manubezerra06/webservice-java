@@ -1,0 +1,116 @@
+para excluir todas as tabelas:
+
+SET FOREIGN_KEY_CHECKS = 0;
+drop table if exists adocao;
+drop table if exists animal;
+drop table if exists anuncio;
+drop table if exists instituicao;
+drop table if exists pessoa;
+drop table if exists usuario;
+SET FOREIGN_KEY_CHECKS = 1;
+
+
+
+
+
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+CREATE TABLE IF NOT EXISTS `adocao` (
+  `codigo` int(11) NOT NULL,
+  `date` datetime DEFAULT NULL,
+  `instituicao` tinyblob,
+  `pessoa` tinyblob
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `animal` (
+  `codigo` int(11) NOT NULL,
+  `DisponivelAdocao` bit(1) DEFAULT NULL,
+  `Genero` char(1) DEFAULT NULL,
+  `Idade` int(11) DEFAULT NULL,
+  `NomeAdotivo` varchar(70) DEFAULT NULL,
+  `Tipo` varchar(70) DEFAULT NULL,
+  `animal` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `anuncio` (
+  `Codigo` int(11) NOT NULL,
+  `animal` tinyblob,
+  `descricao` varchar(255) DEFAULT NULL,
+  `anuncio` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `instituicao` (
+  `Codigo` int(11) NOT NULL,
+  `Cnpj` varchar(15) DEFAULT NULL,
+  `Email` varchar(15) DEFAULT NULL,
+  `Endereco` varchar(15) DEFAULT NULL,
+  `Nome` varchar(15) DEFAULT NULL,
+  `Telefone` varchar(15) DEFAULT NULL,
+  `Tipo` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `pessoa` (
+  `codigo` int(11) NOT NULL,
+  `conjuge` varchar(255) DEFAULT NULL,
+  `dataNascimento` datetime DEFAULT NULL,
+  `deficiente` bit(1) NOT NULL,
+  `etnia` varchar(255) DEFAULT NULL,
+  `genero` varchar(255) DEFAULT NULL,
+  `nomeMae1` varchar(255) DEFAULT NULL,
+  `nomeMae2` varchar(255) DEFAULT NULL,
+  `nomePai1` varchar(255) DEFAULT NULL,
+  `nomePai2` varchar(255) DEFAULT NULL,
+  `nomeSocial` varchar(255) DEFAULT NULL,
+  `religiao` varchar(255) DEFAULT NULL,
+  `telefone` varchar(255) DEFAULT NULL,
+  `usuario` tinyblob
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `email` varchar(255) NOT NULL,
+  `perfilAcesso` varchar(15) DEFAULT NULL,
+  `senha` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `adocao`
+  ADD PRIMARY KEY (`codigo`), ADD UNIQUE KEY `codigo` (`codigo`);
+
+ALTER TABLE `animal`
+  ADD PRIMARY KEY (`codigo`), ADD UNIQUE KEY `codigo` (`codigo`), ADD KEY `FKABC58DFC6D0D7366` (`animal`);
+
+ALTER TABLE `anuncio`
+  ADD PRIMARY KEY (`Codigo`), ADD UNIQUE KEY `Codigo` (`Codigo`), ADD KEY `FKCD95C7835ABC7A4A` (`anuncio`);
+
+ALTER TABLE `instituicao`
+  ADD PRIMARY KEY (`Codigo`), ADD UNIQUE KEY `Codigo` (`Codigo`);
+
+ALTER TABLE `pessoa`
+  ADD PRIMARY KEY (`codigo`), ADD UNIQUE KEY `codigo` (`codigo`);
+
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`email`);
+
+ALTER TABLE `adocao`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `animal`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `anuncio`
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `instituicao`
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `pessoa`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `animal`
+ADD CONSTRAINT `FKABC58DFC6D0D7366` FOREIGN KEY (`animal`) REFERENCES `adocao` (`codigo`);
+
+
+ALTER TABLE `anuncio`
+ADD CONSTRAINT `FKCD95C7835ABC7A4A` FOREIGN KEY (`anuncio`) REFERENCES `instituicao` (`Codigo`);
+

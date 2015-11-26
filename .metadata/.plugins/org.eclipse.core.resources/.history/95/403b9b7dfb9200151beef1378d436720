@@ -1,0 +1,25 @@
+package br.edu.qi.loader;
+
+import br.edu.qi.core.dao.Dao;
+import br.edu.qi.loader.dto.XmlModel;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		
+		Dao dao = new Dao();
+		
+		dao.beginTransaction();
+		Loader loader = new Loader();
+		Parser parser = new Parser(dao);
+
+		
+		for (int i = 1; i <= 4; i++) {
+			XmlModel model = loader.Load("src/loadtest0" + i + ".xml");
+			parser.parse(model);
+		}
+		
+		dao.commit();
+	}	
+}

@@ -1,0 +1,17 @@
+package br.edu.qi.loader;
+
+import br.edu.qi.loader.dto.XmlModel;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Loader loader = new Loader();
+		Parser parser = new Parser();
+
+		for (int i = 1; i <= 4; i++) {
+			XmlModel model = loader.Load("src/loadtest0" + i + ".xml");
+			parser.parse(model);
+		}
+	}	
+}

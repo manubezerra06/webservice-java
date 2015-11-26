@@ -1,0 +1,74 @@
+
+package br.edu.qi.webserver.rest.controller;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import br.edu.qi.loader.dto.AdocaoDto;
+import br.edu.qi.loader.dto.AnimalDto;
+import br.edu.qi.loader.dto.AnuncioDto;
+import br.edu.qi.loader.dto.InstituicaoDto;
+import br.edu.qi.loader.dto.PessoaDto;
+import br.edu.qi.loader.dto.UsuarioDto;
+import br.edu.qi.loader.dto.XmlModel;
+
+@Path("/band")
+public class PetService {
+
+	/*
+	 * @GET
+	 * 
+	 * @Path("/{nome}")
+	 * 
+	 * @Produces(MediaType.APPLICATION_XML) public XmlModel
+	 * getBands(@PathParam("nome") String nome) {
+	 * 
+	 * return null; }
+	 */
+
+	@GET
+	@Path("/xmlsample")
+	@Produces(MediaType.APPLICATION_XML)
+	public XmlModel getXmlSample() {
+
+		XmlModel model = new XmlModel();
+
+		List<AdocaoDto> adocoes = new ArrayList<>();
+		
+		
+		AdocaoDto adocao = new AdocaoDto();
+		List<Integer> codAnimais = new ArrayList<>();
+		codAnimais.add(1);
+		adocao.setCodAnimais(codAnimais );
+		adocao.setCodInstituicao(1);
+		adocao.setCodPessoa(1);
+		adocao.setDate(new Date());
+		adocoes.add(adocao);
+		
+		model.setAdocoes(adocoes);
+
+		List<AnimalDto> animais = new ArrayList<>();
+		model.setAnimais(animais);
+
+		List<AnuncioDto> anuncios = new ArrayList<>();
+		model.setAnuncios(anuncios);
+
+		List<InstituicaoDto> instituicoes = new ArrayList<>();
+		model.setInstituicoes(instituicoes);
+
+		List<UsuarioDto> usuarios = new ArrayList<>();
+		model.setUsuarios(usuarios);
+
+		List<PessoaDto> pessoas = new ArrayList<>();
+		model.setPessoas(pessoas);
+
+		return model;
+	}
+
+}

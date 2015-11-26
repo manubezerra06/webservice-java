@@ -1,0 +1,64 @@
+package br.edu.qi.loader;
+
+import java.io.File;
+import java.util.List;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+import org.hibernate.sql.Insert;
+
+import br.edu.qi.loader.dto.AdocaoDto;
+import br.edu.qi.loader.dto.AnimalDto;
+import br.edu.qi.loader.dto.AnuncioDto;
+import br.edu.qi.loader.dto.InstituicaoDto;
+import br.edu.qi.loader.dto.PessoaDto;
+import br.edu.qi.loader.dto.UsuarioDto;
+import br.edu.qi.loader.dto.XmlModel;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Loader loader = new Loader();
+
+		for (int i = 1; i <= 4; i++) {
+			XmlModel model = loader.Load("src/loadtest0" + i + ".xml");
+			parse(model);
+		}
+
+	}
+
+	private static void parse(XmlModel model) {
+
+		if (model == null)
+			return;
+
+		for (AdocaoDto adocao : model.getAdocoes()) {
+
+		}
+
+		for (AnimalDto animal : model.getAnimais()) {
+
+		}
+
+		for (AnuncioDto anuncio : model.getAnuncios()) {
+
+		}
+
+		for (InstituicaoDto instituicao : model.getInstituicoes()) {
+
+		}
+
+		for (PessoaDto pessoa : model.getPessoas()) {
+
+		}
+
+		for (UsuarioDto usuario : model.getUsuarios()) {
+
+		}
+
+	}
+}

@@ -1,0 +1,20 @@
+package br.edu.qi.core.dto;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class InstituicaoDto {
+
+	private String nome;
+	private String cnpj;
+	private String endereco;
+	private String telefone;
+	private String email;
+	private String tipo;
+	private List<Integer> codAnuncios;
+
+	
+	
+	
+}

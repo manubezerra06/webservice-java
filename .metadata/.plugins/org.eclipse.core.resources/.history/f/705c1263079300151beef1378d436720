@@ -1,0 +1,78 @@
+package br.edu.qi.webserver.rest.controller;
+
+
+
+package br.edu.qi.webserver.rest.controller;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import br.edu.qi.core.dao.Dao;
+import br.edu.qi.core.model.Adocao;
+import br.edu.qi.core.model.Animal;
+import br.edu.qi.core.model.Instituicao;
+import br.edu.qi.loader.dto.AdocaoDto;
+import br.edu.qi.loader.dto.AnimalDto;
+import br.edu.qi.loader.dto.AnuncioDto;
+import br.edu.qi.loader.dto.InstituicaoDto;
+import br.edu.qi.loader.dto.PessoaDto;
+import br.edu.qi.loader.dto.UsuarioDto;
+import br.edu.qi.loader.dto.XmlModel;
+
+@Path("/animais")
+
+public class AnimalService {
+
+	
+
+
+	@GET
+	@Path("/instituicao/cnpj/{cnpj}")
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Animal> getPorInstituicaoCnpj(String cnpj) {
+
+		Dao dao = new Dao();
+		
+		List<Animal> animais = dao.retornarTodos("Animal");
+		
+		List<Animal> retorno = new ArrayList<>();
+		
+		for (Animal animal : animais) {
+			Adocao a = animal.getAdocao();
+			
+			
+			if (a != null){
+				
+				Instituicao i = a.getInstituicao();
+				
+				if (i != null){
+					
+					if (i.getCnpj().equals(cnpj))
+						retorno.add(animal);
+					
+					
+				}
+				
+			}
+		}
+		
+		
+		return retorno;
+	}
+		
+	@GET
+	@Path("/animais")
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Animal> getAnimais() {
+		
+		Dao dao = new Dao();		
+		return dao.retornarTodos("Animal");		
+	}
+
+}

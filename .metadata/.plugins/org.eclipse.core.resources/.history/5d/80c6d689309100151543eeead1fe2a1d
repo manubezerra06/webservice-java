@@ -1,0 +1,37 @@
+
+
+package br.edu.qi.webserver.rest.controller;
+
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+
+@Path("/band")
+public class PetService {
+
+	
+	
+
+		@GET
+		@Path("/{nome}")
+		@Produces(MediaType.APPLICATION_XML)
+		public Band getBands(@PathParam("nome") String nome) {
+			
+			return BandDb.getByName(nome);
+		}
+
+		@GET
+		@Path("/collection")
+		@Produces(MediaType.APPLICATION_XML)
+		public List<Band> getBands() {
+
+			return BandDb.getAll();
+		}
+	
+}

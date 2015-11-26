@@ -1,0 +1,29 @@
+package br.edu.qi.core.dto;
+
+import javax.xml.bind.annotation.XmlElement;
+
+public class AnuncioDto {
+
+	private int codAnimal;
+	private String descricao;
+
+
+	@XmlElement
+	public int getCodAnimal() {
+		return codAnimal;
+	}
+
+	public void setCodAnimal(int codAnimal) {
+		this.codAnimal = codAnimal;
+	}
+
+	@XmlElement
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+}

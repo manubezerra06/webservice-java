@@ -1,0 +1,101 @@
+package br.edu.qi.loader;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import br.edu.qi.core.dao.Dao;
+import br.edu.qi.core.model.Adocao;
+import br.edu.qi.core.model.Animal;
+import br.edu.qi.core.model.Anuncio;
+import br.edu.qi.core.model.Instituicao;
+import br.edu.qi.core.model.Pessoa;
+import br.edu.qi.core.model.Usuario;
+import br.edu.qi.loader.dto.AdocaoDto;
+import br.edu.qi.loader.dto.AnimalDto;
+import br.edu.qi.loader.dto.AnuncioDto;
+import br.edu.qi.loader.dto.InstituicaoDto;
+import br.edu.qi.loader.dto.PessoaDto;
+import br.edu.qi.loader.dto.UsuarioDto;
+import br.edu.qi.loader.dto.XmlModel;
+
+public class Parser {
+
+	Dao dao;
+	
+	public Parser(Dao dao) {
+		super();
+		this.dao = dao;
+	}
+
+	public void parse(XmlModel model) {
+
+		if (model == null)
+			return;
+
+		for (AdocaoDto adocao : model.getAdocoes()) {
+
+			Instituicao instituicao = dao.retornarPorId(Instituicao.class, adocao.getCodInstituicao());
+			Pessoa pessoa = dao.retornarPorId(Pessoa.class, adocao.getCodPessoa());
+
+			Date date = adocao.getDate();
+
+			Set<Animal> animais = new HashSet<Animal>(0);
+
+			for (int codAnimal : adocao.getCodAnimais()) {
+
+				Animal a = dao.retornarPorId(Animal.class, codAnimal);
+
+				animais.add(a);
+			}
+
+			Adocao a = new Adocao(instituicao, pessoa, date, animais);
+			
+			dao.salvar(a);
+		}
+
+		for (AnimalDto animal : model.getAnimais()) {			
+
+			Animal a = new Animal(animal.getNomeAdotivo(), animal.getTipo(), animal.getGenero(), animal.getIdade(), animal.isDisponivelAdocao());
+			dao.salvar(a);
+		}
+
+		for (AnuncioDto anuncio : model.getAnuncios()) {
+			
+			//Instituicao i = dao.retornarPorId(Instituicao.class, anuncio.getCodInstituicao());
+			//Animal a = dao.retornarPorId(Animal.class, anuncio.getCodAnimal());
+			
+			//gambiarra para evitar ids errados
+			Instituicao i = (Instituicao) dao.retornarTodos("Instituicao").get(anuncio.getCodInstituicao());
+			Animal a = (Animal) dao.retornarTodos("Animal").get(anuncio.getCodAnimal());
+			
+			
+			Anuncio anun = new Anuncio(a, anuncio.getDescricao(), i);
+			dao.salvar(anun);
+
+		}
+
+		for (InstituicaoDto instituicao : model.getInstituicoes()) {
+			
+			Instituicao i = new Instituicao(instituicao.getNome(), instituicao.getCnpj(), instituicao.getEndereco(), instituicao.getTelefone(), instituicao.getEmail(), instituicao.getTipo());
+			dao.salvar(i);
+		}
+
+		for (PessoaDto pessoa : model.getPessoas()) {
+			
+			Usuario usuario = dao.retornarPorId(Usuario.class, pessoa.getEmailUsuario());
+			Pessoa p = new Pessoa(pessoa.getNomeSocial(), pessoa.getDataNascimento(), pessoa.getNomePai1(), pessoa.getNomePai2(), pessoa.getNomeMae1(), pessoa.getNomeMae2(), pessoa.getTelefone(), pessoa.getGenero(), pessoa.getConjuge(), pessoa.getEtnia(), pessoa.getReligiao(), pessoa.isDeficiente(),usuario);
+			
+			dao.salvar(p);
+
+		}
+
+		for (UsuarioDto usuario : model.getUsuarios()) {
+			
+			Usuario u = new Usuario(usuario.getEmail(), usuario.getSenha(), usuario.getPerfilAcesso());
+			dao.salvar(u);
+		}
+
+	}
+
+}
