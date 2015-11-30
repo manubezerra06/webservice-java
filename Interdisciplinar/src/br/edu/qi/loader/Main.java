@@ -14,8 +14,8 @@ public class Main {
 		for (int i = 1; i <= 4; i++) {
 			XmlModel model = loader.Load("src/loadtest0" + i + ".xml");
 
-			dao.beginTransaction();
-
+			dao.beginTransaction(); 
+ 
 			Parser parser = new Parser(dao);
 			parser.parse(model);
 

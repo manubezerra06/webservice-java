@@ -11,13 +11,12 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "adocao", catalog = "interdisciplinar")
+@Table(name = "adocao", catalog = "bdqi")
 public class Adocao implements java.io.Serializable {
 
 	private static final long serialVersionUID = -6312985520798974888L;

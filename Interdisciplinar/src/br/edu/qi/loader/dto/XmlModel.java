@@ -21,6 +21,8 @@ public class XmlModel {
 	private List<AnuncioDto> anuncios;
 
 	private List<AdocaoDto> adocoes;
+	
+	private String error;
 
 	@XmlElement(name = "animal")
 	@XmlElementWrapper(name = "animais")
@@ -94,4 +96,12 @@ public class XmlModel {
 	public void setAdocoes(List<AdocaoDto> adocoes) {
 		this.adocoes = adocoes;
 	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}	
 }

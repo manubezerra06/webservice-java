@@ -9,6 +9,7 @@ public class AnimalDto {
 	private char genero;
 	private int idade;
 	private boolean disponivelAdocao;
+	private String raca;
 
 	public String getNomeAdotivo() {
 		return nomeAdotivo;
@@ -55,4 +56,11 @@ public class AnimalDto {
 		this.disponivelAdocao = disponivelAdocao;
 	}
 
+	public String getRaca() {
+		return raca;
+	}
+
+	public void setRaca(String raca) {
+		this.raca = raca;
+	}	
 }

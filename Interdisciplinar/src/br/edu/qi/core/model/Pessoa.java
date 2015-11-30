@@ -3,17 +3,20 @@ package br.edu.qi.core.model;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pessoa", catalog = "interdisciplinar")
+@Table(name = "pessoa", catalog = "bdqi")
 public class Pessoa implements java.io.Serializable {
 
 	private static final long serialVersionUID = -7724769533520157755L;
@@ -32,6 +35,7 @@ public class Pessoa implements java.io.Serializable {
 	private String religiao;
 	private boolean isDeficiente;
 	private Usuario usuario;
+	private Set<Adocao> adocoes = new HashSet<Adocao>(0);
 	
 	public Pessoa() {
 		super();
@@ -189,4 +193,15 @@ public class Pessoa implements java.io.Serializable {
 		return serialVersionUID;
 	}
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa")
+	public Set<Adocao> getAdocoes() {
+		return adocoes;
+	}
+
+	public void setAdocoes(Set<Adocao> adocoes) {
+		this.adocoes = adocoes;
+	}
+
+	
+	
 }

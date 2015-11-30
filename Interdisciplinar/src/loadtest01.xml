@@ -1,52 +1,57 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xmlModel>
-    <animais>
-        <animal>
-            <disponivelAdocao>true</disponivelAdocao>
-            <genero>109</genero>
-            <idade>3</idade>
-            <nomeAdotivo>toto</nomeAdotivo>
-            <tipo>ção viralata</tipo>
-        </animal>
-        <animal>
-            <disponivelAdocao>true</disponivelAdocao>
-            <genero>102</genero>
-            <idade>2</idade>
-            <nomeAdotivo>rex</nomeAdotivo>
-            <tipo>ção fox</tipo>
-        </animal>
-         <animal>
-            <disponivelAdocao>false</disponivelAdocao>
-            <genero>109</genero>
-            <idade>1</idade>
-            <nomeAdotivo>chica</nomeAdotivo>
-            <tipo>são bernardo</tipo>
-        </animal>
-          <animal>
-            <disponivelAdocao>false</disponivelAdocao>
-            <genero>109</genero>
-            <idade>4</idade>
-            <nomeAdotivo>branca</nomeAdotivo>
-            <tipo>chihuahua</tipo>
-        </animal>
-        <animal>
-            <disponivelAdocao>true</disponivelAdocao>
-            <genero>109</genero>
-            <idade>2</idade>
-            <nomeAdotivo>preta</nomeAdotivo>
-            <tipo>fox terrier</tipo>
-        </animal>
-    </animais>
-    <usuarios>
-        <usuario>
-            <email>rodrigo@gmail.com</email>
-            <perfilAcesso>Rodrigo</perfilAcesso>
-            <senha>12345567</senha>
-        </usuario>
-        <usuario>
-            <email>reus@gmail.com</email>
-            <perfilAcesso>Eduardo Reus</perfilAcesso>
-            <senha>98654332</senha>
-        </usuario>
-    </usuarios>
+	<animais>
+		<animal>
+			<disponivelAdocao>true</disponivelAdocao>
+			<genero>109</genero>
+			<idade>3</idade>
+			<nomeAdotivo>toto</nomeAdotivo>
+			<tipo>Cão</tipo>
+			<raca>viralata</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>true</disponivelAdocao>
+			<genero>102</genero>
+			<idade>2</idade>
+			<nomeAdotivo>rex</nomeAdotivo>
+			<tipo>Cão</tipo>
+			<raca>fox</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>false</disponivelAdocao>
+			<genero>109</genero>
+			<idade>1</idade>
+			<nomeAdotivo>chica</nomeAdotivo>
+			<tipo>Cão</tipo>
+			<raca>são bernardo</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>false</disponivelAdocao>
+			<genero>109</genero>
+			<idade>4</idade>
+			<nomeAdotivo>branca</nomeAdotivo>
+			<tipo>Cão</tipo>
+			<raca>chihuahua</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>true</disponivelAdocao>
+			<genero>109</genero>
+			<idade>2</idade>
+			<nomeAdotivo>preta</nomeAdotivo>
+			<tipo>Cão</tipo>
+			<raca>fox terrier</raca>
+		</animal>
+	</animais>
+	<usuarios>
+		<usuario>
+			<email>rodrigo@gmail.com</email>
+			<perfilAcesso>Rodrigo</perfilAcesso>
+			<senha>12345567</senha>
+		</usuario>
+		<usuario>
+			<email>reus@gmail.com</email>
+			<perfilAcesso>Eduardo Reus</perfilAcesso>
+			<senha>98654332</senha>
+		</usuario>
+	</usuarios>
 </xmlModel>
