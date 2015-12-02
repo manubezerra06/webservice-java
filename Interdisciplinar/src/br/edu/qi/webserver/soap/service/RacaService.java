@@ -1,7 +1,10 @@
 package br.edu.qi.webserver.soap.service;
 
-import br.edu.qi.loader.dto.XmlModel;
+import javax.jws.WebService;
 
+import br.edu.qi.loader.dto.RetornoDto;
+
+@WebService(endpointInterface = "br.edu.qi.webserver.soap.service.IRacaService")
 public class RacaService implements IRacaService {
 
 	
@@ -11,20 +14,20 @@ public class RacaService implements IRacaService {
 	 * 
 	 * Desenvolver Web services Rest:
 
-a. Um Web service as raças mais adotadas. Passar como parâmetro o tipo 
+a. Um Web service as raï¿½as mais adotadas. Passar como parï¿½metro o tipo 
 
 b. Consumir o Web service anterior em qualquer outra tecnologia. 
 
-animal, ou seja, se é cão ou Gato. O retorno pode ser em qualquer formato
+animal, ou seja, se ï¿½ cï¿½o ou Gato. O retorno pode ser em qualquer formato
 
 Desenvolver um exemplo mostrando os dados retornados pelo WS. 
 
-Sugestão: php, .NET,... **/
+Sugestï¿½o: php, .NET,... **/
 	
-public 	XmlModel getRacasMaisAdotadas(){
+public 	RetornoDto getRacasMaisAdotadas(){
 		
 		
-	return new XmlModel();
+	return new RetornoDto();
 		
 	}
 	

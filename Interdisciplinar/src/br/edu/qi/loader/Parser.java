@@ -17,7 +17,7 @@ import br.edu.qi.loader.dto.AnuncioDto;
 import br.edu.qi.loader.dto.InstituicaoDto;
 import br.edu.qi.loader.dto.PessoaDto;
 import br.edu.qi.loader.dto.UsuarioDto;
-import br.edu.qi.loader.dto.XmlModel;
+import br.edu.qi.loader.dto.RetornoDto;
 
 public class Parser {
 
@@ -55,7 +55,7 @@ public class Parser {
 
 	}
 
-	public void parse(XmlModel model) {
+	public void parse(RetornoDto model) {
 
 		if (model == null)
 			return;

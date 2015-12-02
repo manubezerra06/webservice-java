@@ -22,7 +22,6 @@
 <fullyQualifiedTypeName name="br.edu.qi.core.dto.AnuncioDto"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AdocaoDto"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElementWrapper"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AnuncioDto"/>
@@ -32,17 +31,21 @@
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.UsuarioDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.model.Pessoa"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.dao.Dao"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.NaturalId"/>
 <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="javax.persistence.MapsId"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
-<fullyQualifiedTypeName name="br.edu.qi.core.model.Adocao"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.model.Instituicao"/>
 <fullyQualifiedTypeName name="javax.ws.rs.QueryParam"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.XmlModel"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AnimalDto"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.model.Anuncio"/>
+<fullyQualifiedTypeName name="javax.jws.WebService"/>
+<fullyQualifiedTypeName name="br.edu.qi.core.model.Adocao"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="br.edu.qi.loader.dto.AnimalServiceDto"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="br.edu.qi.loader.dto.AdocaoServiceDto"/>
 </qualifiedTypeNameHistroy>

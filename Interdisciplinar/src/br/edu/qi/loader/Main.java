@@ -1,7 +1,7 @@
 package br.edu.qi.loader;
 
 import br.edu.qi.core.dao.Dao;
-import br.edu.qi.loader.dto.XmlModel;
+import br.edu.qi.loader.dto.RetornoDto;
 
 public class Main {
 
@@ -11,8 +11,8 @@ public class Main {
 
 		Loader loader = new Loader();
 
-		for (int i = 1; i <= 4; i++) {
-			XmlModel model = loader.Load("src/loadtest0" + i + ".xml");
+		for (int i = 1; i <= 3; i++) {
+			RetornoDto model = loader.Load("src/loadtest0" + i + ".xml");
 
 			dao.beginTransaction(); 
  

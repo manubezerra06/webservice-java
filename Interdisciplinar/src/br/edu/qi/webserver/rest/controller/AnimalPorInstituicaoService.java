@@ -13,7 +13,7 @@ import br.edu.qi.core.model.Animal;
 import br.edu.qi.core.model.Anuncio;
 import br.edu.qi.core.model.Instituicao;
 import br.edu.qi.loader.dto.AnimalDto;
-import br.edu.qi.loader.dto.XmlModel;
+import br.edu.qi.loader.dto.RetornoDto;
 
 @Path("/animais")
 public class AnimalPorInstituicaoService {
@@ -21,13 +21,13 @@ public class AnimalPorInstituicaoService {
 	@GET
 	@Path("/instituicao/cnpj/{cnpj}")
 	@Produces(MediaType.APPLICATION_XML)
-	public XmlModel getPorInstituicaoCnpj(@PathParam("cnpj") String cnpj) {
+	public RetornoDto getPorInstituicaoCnpj(@PathParam("cnpj") String cnpj) {
 
 		Dao dao = new Dao();
 
 		List<Animal> animais = dao.retornarTodos("Animal");
 
-		XmlModel retorno = new XmlModel();
+		RetornoDto retorno = new RetornoDto();
 
 		for (Animal animal : animais) {
 			Anuncio anuncio = animal.getAnuncio();
@@ -60,13 +60,13 @@ public class AnimalPorInstituicaoService {
 	@GET
 	@Path("/instituicao/nome/{nome}")
 	@Produces(MediaType.APPLICATION_XML)
-	public XmlModel getPorInstituicaoNome(@PathParam("nome") String nome) {
+	public RetornoDto getPorInstituicaoNome(@PathParam("nome") String nome) {
 
 		Dao dao = new Dao();
 
 		List<Animal> animais = dao.retornarTodos("Animal");
 
-		XmlModel retorno = new XmlModel();
+		RetornoDto retorno = new RetornoDto();
 
 		for (Animal animal : animais) {
 			Anuncio anuncio = animal.getAnuncio();
@@ -99,12 +99,12 @@ public class AnimalPorInstituicaoService {
 	@GET
 	@Path("/nao-adotados")
 	@Produces(MediaType.APPLICATION_XML)
-	public XmlModel getAnimaisNaoAdotados() {
+	public RetornoDto getAnimaisNaoAdotados() {
 
 		Dao dao = new Dao();
 		List<Animal> animais = dao.retornarTodos("Animal");
 
-		XmlModel retorno = new XmlModel();
+		RetornoDto retorno = new RetornoDto();
 
 		for (Animal animal : animais) {
 			Anuncio anuncio = animal.getAnuncio();

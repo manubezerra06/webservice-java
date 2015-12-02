@@ -4,36 +4,45 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.jws.WebService;
 
 import br.edu.qi.core.dao.Dao;
 import br.edu.qi.core.model.Adocao;
 import br.edu.qi.core.model.Animal;
+import br.edu.qi.core.model.Instituicao;
+import br.edu.qi.core.model.Pessoa;
 import br.edu.qi.loader.Parser;
 import br.edu.qi.loader.dto.AdocaoDto;
-import br.edu.qi.loader.dto.XmlModel;
+import br.edu.qi.loader.dto.AdocaoServiceDto;
+import br.edu.qi.loader.dto.RetornoDto;
 
+
+@WebService(endpointInterface = "br.edu.qi.webserver.soap.service.IAdocaoService")
 public class AdocaoService implements IAdocaoService {
 
-	public XmlModel adotarAnimal(AdocaoDto adocaoDto) {
+	public RetornoDto adotarAnimal(AdocaoServiceDto adocaoServiceDto) {
 
 		/*
-		 * Um Web service que adote um animal. Cadastrar a pessoa, caso ela não
+		 * Um Web service que adote um animal. Cadastrar a pessoa, caso ela nï¿½o
 		 * 
-		 * seja cadastrada. Validar se a idade é superior a 16 anos para efetuar
+		 * seja cadastrada. Validar se a idade ï¿½ superior a 16 anos para efetuar
 		 * o
 		 * 
-		 * cadastro e consequentemente a adoção. Retornar uma mensagem
+		 * cadastro e consequentemente a adoï¿½ï¿½o. Retornar uma mensagem
 		 * 
 		 * indicando o que aconteceu. Enviar os dados para o Web service
 		 * 
-		 * necessários para o cadastro .
+		 * necessï¿½rios para o cadastro .
 		 */
 
 		Dao dao = new Dao();
 
 		dao.beginTransaction();
 
-		Adocao newAdocao = Parser.parseAdocao(dao, adocaoDto);
+		Adocao newAdocao = parseAdocao(dao, adocaoServiceDto);
 
 		dao.salvar(newAdocao);
 
@@ -42,20 +51,20 @@ public class AdocaoService implements IAdocaoService {
 		for (Animal animal : newAdocao.getAnimais()) {
 
 			if (animal.getAdocao() != null) {
-				XmlModel xmlModel = new XmlModel();
-				xmlModel.setError("animal " + animal.getCodigo() + " já está adotado.");
+				RetornoDto xmlModel = new RetornoDto();
+				xmlModel.setError("animal " + animal.getCodigo() + " jï¿½ estï¿½ adotado.");
 				return xmlModel;
 			}
 
 			String key = animal.getTipo();
-			// tipos.merge(key, 1, (a,b) -> a+b); //lambda não funciona :(
+			// tipos.merge(key, 1, (a,b) -> a+b); //lambda nï¿½o funciona :(
 			int count = tipos.getOrDefault(key, 0);
 			count += 1;
 			tipos.put(key, count);
 
 			if (count > 2) {
-				XmlModel xmlModel = new XmlModel();
-				xmlModel.setError("só pode adotar 2 animais de um mesmo tipo");
+				RetornoDto xmlModel = new RetornoDto();
+				xmlModel.setError("sï¿½ pode adotar 2 animais de um mesmo tipo");
 				return xmlModel;
 			}
 
@@ -64,32 +73,75 @@ public class AdocaoService implements IAdocaoService {
 		}
 
 		if (newAdocao.getInstituicao() == null) {
-			XmlModel xmlModel = new XmlModel();
-			xmlModel.setError("instituição não encontrada.");
+			RetornoDto xmlModel = new RetornoDto();
+			xmlModel.setError("instituiï¿½ï¿½o nï¿½o encontrada.");
 			return xmlModel;
 		}
 
 		if (newAdocao.getPessoa() == null) {
-			XmlModel xmlModel = new XmlModel();
-			xmlModel.setError("pessoa não encontrada.");
+			
+			
+			
+			RetornoDto xmlModel = new RetornoDto();
+			xmlModel.setError("pessoa nï¿½o encontrada.");
 			return xmlModel;
 		}
 
 		Date dataNascimento = newAdocao.getPessoa().getDataNascimento();
 
 		if (getIdade(dataNascimento) > 16) {
-			XmlModel xmlModel = new XmlModel();
+			RetornoDto xmlModel = new RetornoDto();
 			xmlModel.setError("a pessoa deve ter mais de 16 anos.");
 			return xmlModel;
 		}
 
 		dao.commit();
 
-		XmlModel retorno = new XmlModel();
+		RetornoDto retorno = new RetornoDto();
 
-		retorno.getAdocoes().add(adocaoDto);
+		retorno.getAdocoes().add(adocaoServiceDto);
 
 		return retorno;
+	}
+	
+	public static Adocao parseAdocao(Dao dao, AdocaoServiceDto adocaoDto) {
+
+		// Instituicao instituicao = dao.retornarPorId(Instituicao.class,
+		// adocao.getCodInstituicao());
+		Instituicao instituicao = (Instituicao) dao.retornarTodos("Instituicao").get(adocaoDto.getCodInstituicao() - 1);
+
+		// Pessoa pessoa = dao.retornarPorId(Pessoa.class,
+		// adocao.getCodPessoa());
+		
+		Pessoa pessoa  = null;
+		
+		if (adocaoDto.getCodPessoa() != 0){
+		pessoa = (Pessoa) dao.retornarPorId(Pessoa.class, adocaoDto.getCodPessoa());
+		}
+		else{
+			
+			pessoa = new Pessoa();
+			PessoaDto	pessoaDto  = adocaoDto.getPessoaDto()
+			pessoa.setNome()
+			
+		
+		}
+
+		Date date = adocaoDto.getDate();
+
+		Set<Animal> animais = new HashSet<Animal>(0);
+
+		for (int codAnimal : adocaoDto.getCodAnimais()) {
+
+			// Animal a = dao.retornarPorId(Animal.class, codAnimal);
+			Animal a = (Animal) dao.retornarTodos("Animal").get(codAnimal - 1);
+			animais.add(a);
+
+		}
+
+		Adocao newAdocao = new Adocao(instituicao, pessoa, date, animais);
+		return newAdocao;
+
 	}
 
 	public static int getIdade(Date dataNascimento) {

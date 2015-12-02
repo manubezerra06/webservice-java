@@ -1,0 +1,34 @@
+package br.edu.qi.loader.dto;
+
+import java.util.List;
+
+public class AnimalServiceDto {
+
+	private String nomeSocial;
+	private String tipo;
+	private List<String> nomeAnimais;
+
+	public String getNomeSocial() {
+		return nomeSocial;
+	}
+
+	public void setNomeSocial(String nomeSocial) {
+		this.nomeSocial = nomeSocial;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public List<String> getNomeAnimais() {
+		return nomeAnimais;
+	}
+
+	public void setNomeAnimais(List<String> nomeAnimais) {
+		this.nomeAnimais = nomeAnimais;
+	}
+}

@@ -12,7 +12,7 @@ import br.edu.qi.core.dao.Dao;
 import br.edu.qi.core.model.Adocao;
 import br.edu.qi.core.model.Animal;
 import br.edu.qi.loader.dto.AnimalDto;
-import br.edu.qi.loader.dto.XmlModel;
+import br.edu.qi.loader.dto.RetornoDto;
 
 @Path("/animais")
 public class AnimalPorAdocaoService {
@@ -20,13 +20,13 @@ public class AnimalPorAdocaoService {
 	@GET
 	@Path("/adocao")
 	@Produces(MediaType.APPLICATION_JSON)
-	public XmlModel getNaoAdotados() {
+	public RetornoDto getNaoAdotados() {
 
 		Dao dao = new Dao();
 
 		List<Animal> animais = dao.retornarTodos("Animal");
 
-		XmlModel retorno = new XmlModel();
+		RetornoDto retorno = new RetornoDto();
 
 		for (Animal animal : animais) {
 			Adocao adocao = animal.getAdocao();
@@ -49,13 +49,13 @@ public class AnimalPorAdocaoService {
 	@GET
 	@Path("/adocao/{tipo}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public XmlModel getNaoAdotados(@PathParam("tipo") String tipo) {
+	public RetornoDto getNaoAdotados(@PathParam("tipo") String tipo) {
 
 		Dao dao = new Dao();
 
 		List<Animal> animais = dao.retornarTodos("Animal");
 
-		XmlModel retorno = new XmlModel();
+		RetornoDto retorno = new RetornoDto();
 
 		for (Animal animal : animais) {
 			Adocao adocao = animal.getAdocao();

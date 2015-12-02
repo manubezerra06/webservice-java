@@ -10,7 +10,7 @@ import br.edu.qi.core.model.Pessoa;
 @WebService(endpointInterface = "br.edu.qi.webserver.soap.service.IPessoaService")
 public class PessoaService implements IPessoaService {
 
-	void getPessoaComMaisAdocao(int mes, int ano) {
+	public void getPessoaComMaisAdocao(int mes, int ano) {
 
 		Dao dao = new Dao();
 

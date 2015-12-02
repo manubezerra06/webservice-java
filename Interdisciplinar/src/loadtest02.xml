@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xmlModel>
-	<instituicoes>
-		<instituicao>
-			<cnpj>009005003390001-88</cnpj>
-			<email>onda@gamil.com</email>
-			<nome>Onda Animal</nome>
-			<telefone>34175999</telefone>
-			<tipo>ong</tipo>
-			<endereco>rua dorival de oliveira 123</endereco>
-		</instituicao>
-		<instituicao>
-			<cnpj>00958473874870001-88</cnpj>
-			<email>meubixoderua@gamil.com</email>
-			<nome>Meu bixo de rua</nome>
-			<telefone>34715439</telefone>
-			<tipo>ong</tipo>
-			<endereco>rua flores da cunha 123</endereco>
-		</instituicao>
-	</instituicoes>
+<xmlModel>	
 	<pessoas>
 		<pessoa>
 			<emailUsuario>reus@gmail.com</emailUsuario>
@@ -46,4 +28,21 @@
 			<telefone>839483958</telefone>
 		</pessoa>
 	</pessoas>
+		<anuncios>
+		<anuncio>
+			<codAnimal>1</codAnimal>
+			<descricao>Este cãozinho está procura de um lar</descricao>
+			<codInstituicao>1</codInstituicao>
+		</anuncio>
+		<anuncio>
+			<codAnimal>2</codAnimal>
+			<descricao>Outro cãozinho que está procura de um lar</descricao>
+			<codInstituicao>2</codInstituicao>
+		</anuncio>
+		<anuncio>
+			<codAnimal>3</codAnimal>
+			<descricao>mais um cãozinho que está procura de um lar</descricao>
+			<codInstituicao>2</codInstituicao>
+		</anuncio>
+	</anuncios>
 </xmlModel>

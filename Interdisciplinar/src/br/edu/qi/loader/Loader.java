@@ -6,7 +6,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import br.edu.qi.loader.dto.XmlModel;
+import br.edu.qi.loader.dto.RetornoDto;
 
 public class Loader {
 
@@ -14,7 +14,7 @@ public class Loader {
 
 	public Loader() {
 		try {
-			JAXBContext context = JAXBContext.newInstance(XmlModel.class);
+			JAXBContext context = JAXBContext.newInstance(RetornoDto.class);
 			unmarshaller = context.createUnmarshaller();
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
@@ -23,12 +23,12 @@ public class Loader {
 
 	}
 
-	public XmlModel Load(String path) {
+	public RetornoDto Load(String path) {
 
 		try {
 			File file = new File(path);
 			Object unmarshallerResult = this.unmarshaller.unmarshal(file);
-			XmlModel model = (XmlModel) unmarshallerResult;
+			RetornoDto model = (RetornoDto) unmarshallerResult;
 			return model;
 
 		} catch (JAXBException e) {
