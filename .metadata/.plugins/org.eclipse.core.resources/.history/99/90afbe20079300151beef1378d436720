@@ -1,5 +1,0 @@
-package br.edu.qi.webserver.rest.controller;
-
-public class AnimalService {
-
-}

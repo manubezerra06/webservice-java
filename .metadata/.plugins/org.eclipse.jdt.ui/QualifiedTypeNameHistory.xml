@@ -21,13 +21,11 @@
 <fullyQualifiedTypeName name="br.edu.qi.core.dto.AdocaoDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.dto.AnuncioDto"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
-<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AdocaoDto"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElementWrapper"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AnuncioDto"/>
 <fullyQualifiedTypeName name="org.hibernate.sql.Insert"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.InstituicaoDto"/>
-<fullyQualifiedTypeName name="br.edu.qi.loader.dto.PessoaDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.UsuarioDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.model.Pessoa"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
@@ -45,7 +43,11 @@
 <fullyQualifiedTypeName name="javax.jws.WebService"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.model.Adocao"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="br.edu.qi.loader.dto.AnimalServiceDto"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AdocaoServiceDto"/>
+<fullyQualifiedTypeName name="br.edu.qi.loader.dto.PessoaDto"/>
+<fullyQualifiedTypeName name="br.edu.qi.webserver.soap.service.PessoaService"/>
+<fullyQualifiedTypeName name="br.edu.qi.loader.dto.AnimalServiceDto"/>
+<fullyQualifiedTypeName name="br.edu.qi.loader.dto.RetornoAdocaoService"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
 </qualifiedTypeNameHistroy>

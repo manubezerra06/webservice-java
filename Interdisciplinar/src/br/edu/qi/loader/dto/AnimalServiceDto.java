@@ -1,7 +1,5 @@
 package br.edu.qi.loader.dto;
 
-import java.util.List;
-
 public class AnimalServiceDto {
 
 	private String nomeSocial;

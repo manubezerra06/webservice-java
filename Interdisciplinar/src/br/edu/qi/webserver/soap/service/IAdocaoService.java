@@ -1,10 +1,9 @@
 package br.edu.qi.webserver.soap.service;
 
-import br.edu.qi.loader.dto.AdocaoDto;
 import br.edu.qi.loader.dto.AdocaoServiceDto;
-import br.edu.qi.loader.dto.RetornoDto;
+import br.edu.qi.loader.dto.RetornoAdocaoService;
 
 public interface IAdocaoService {
 
-	public RetornoDto adotarAnimal(AdocaoServiceDto adocaoServiceDto);
+	public RetornoAdocaoService adotarAnimal(AdocaoServiceDto adocaoServiceDto);
 }

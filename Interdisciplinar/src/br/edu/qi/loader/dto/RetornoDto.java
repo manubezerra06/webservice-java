@@ -97,6 +97,7 @@ public class RetornoDto {
 		this.adocoes = adocoes;
 	}
 
+	@XmlElement
 	public String getError() {
 		return error;
 	}
