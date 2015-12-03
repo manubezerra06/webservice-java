@@ -1,0 +1,23 @@
+package br.edu.qi.loader.dto;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import br.edu.qi.webserver.soap.service.PessoaService;
+
+@XmlRootElement()
+public class RetornoAdocaoService {
+
+	private AnimalServiceDto animalServiceDto;
+
+	@XmlElement
+	public AnimalServiceDto getAnimalServiceDto() {
+		return animalServiceDto;
+	}
+
+	public void setAnimalServiceDto(AnimalServiceDto animalServiceDto) {
+		this.animalServiceDto = animalServiceDto;
+	}
+	
+	
+}

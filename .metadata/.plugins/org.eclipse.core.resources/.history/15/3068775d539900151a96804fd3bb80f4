@@ -1,0 +1,164 @@
+package br.edu.qi.webserver.soap.service;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.jws.WebService;
+
+import br.edu.qi.core.dao.Dao;
+import br.edu.qi.core.model.Adocao;
+import br.edu.qi.core.model.Animal;
+import br.edu.qi.core.model.Instituicao;
+import br.edu.qi.core.model.Pessoa;
+import br.edu.qi.loader.dto.AdocaoServiceDto;
+import br.edu.qi.loader.dto.PessoaDto;
+import br.edu.qi.loader.dto.RetornoAdocaoService;
+
+@WebService(endpointInterface = "br.edu.qi.webserver.soap.service.IAdocaoService")
+public class AdocaoService implements IAdocaoService {
+
+	public RetornoAdocaoService adotarAnimal(AdocaoServiceDto adocaoServiceDto) {
+
+		/*
+		 * Um Web service que adote um animal. Cadastrar a pessoa, caso ela
+		 * n�o
+		 * 
+		 * seja cadastrada. Validar se a idade � superior a 16 anos para
+		 * efetuar o
+		 * 
+		 * cadastro e consequentemente a ado��o. Retornar uma mensagem
+		 * 
+		 * indicando o que aconteceu. Enviar os dados para o Web service
+		 * 
+		 * necess�rios para o cadastro .
+		 */
+
+		Dao dao = new Dao();
+
+		dao.beginTransaction();
+
+		Adocao newAdocao = parseAdocao(dao, adocaoServiceDto);
+
+		dao.salvar(newAdocao);
+
+		HashMap<String, Integer> tipos = new HashMap<>();
+
+		for (Animal animal : newAdocao.getAnimais()) {
+
+			if (animal.getAdocao() != null) {
+				RetornoAdocaoService xmlModel = new RetornoAdocaoService();
+				xmlModel.setErro("animal " + animal.getCodigo() + " j� est� adotado.");
+				return xmlModel;
+			}
+
+			String key = animal.getTipo();
+			// tipos.merge(key, 1, (a,b) -> a+b); //lambda n�o funciona :(
+			int count = tipos.getOrDefault(key, 0);
+			count += 1;
+			tipos.put(key, count);
+
+			if (count > 2) {
+				RetornoAdocaoService xmlModel = new RetornoAdocaoService();
+				xmlModel.setErro("s� pode adotar 2 animais de um mesmo tipo");
+				return xmlModel;
+			}
+
+			animal.setAdocao(newAdocao);
+			dao.salvar(animal);
+		}
+
+		if (newAdocao.getInstituicao() == null) {
+			RetornoAdocaoService xmlModel = new RetornoAdocaoService();
+			xmlModel.setErro("institui��o n�o encontrada.");
+			return xmlModel;
+		}
+
+		if (newAdocao.getPessoa() == null) {
+
+			RetornoAdocaoService xmlModel = new RetornoAdocaoService();
+			xmlModel.setErro("pessoa n�o encontrada.");
+			return xmlModel;
+		}
+
+		Date dataNascimento = newAdocao.getPessoa().getDataNascimento();
+
+		if (getIdade(dataNascimento) > 16) {
+			RetornoAdocaoService xmlModel = new RetornoAdocaoService();
+			xmlModel.setErro("a pessoa deve ter mais de 16 anos.");
+			return xmlModel;
+		}
+
+		dao.commit();
+
+		RetornoAdocaoService retorno = new RetornoAdocaoService();
+
+		retorno.setAdocaoServiceDto(adocaoServiceDto);
+		
+		return retorno;
+	}
+
+	public static Adocao parseAdocao(Dao dao, AdocaoServiceDto adocaoDto) {
+
+		// Instituicao instituicao = dao.retornarPorId(Instituicao.class,
+		// adocao.getCodInstituicao());
+		Instituicao instituicao = (Instituicao) dao.retornarTodos("Instituicao").get(adocaoDto.getCodInstituicao() - 1);
+
+		Pessoa pessoa = null;
+
+		if (adocaoDto.getCodPessoa() != 0) {
+			pessoa = (Pessoa) dao.retornarPorId(Pessoa.class, adocaoDto.getCodPessoa());
+		} else {
+
+			pessoa = new Pessoa();
+			PessoaDto pessoaDto = adocaoDto.getPessoaDto();
+			pessoa.setNomeSocial(pessoaDto.getNomeSocial());
+			pessoa.setNomeMae1(pessoaDto.getNomeMae1());
+			pessoa.setNomeMae2(pessoaDto.getNomeMae2());
+			pessoa.setNomePai1(pessoaDto.getNomePai1());
+			pessoa.setNomePai2(pessoaDto.getNomePai2());
+			pessoa.setDataNascimento(pessoaDto.getDataNascimento());
+			pessoa.setGenero(pessoaDto.getGenero());
+			pessoa.setConjuge(pessoaDto.getConjuge());
+			pessoa.setDeficiente(pessoaDto.isDeficiente());
+			pessoa.setEtnia(pessoaDto.getEtnia());
+			pessoa.setReligiao(pessoaDto.getReligiao());
+			pessoa.setTelefone(pessoaDto.getTelefone());
+		}
+
+		Date date = adocaoDto.getDate();
+
+		Set<Animal> animais = new HashSet<Animal>(0);
+
+		for (int codAnimal : adocaoDto.getCodAnimais()) {
+
+			// Animal a = dao.retornarPorId(Animal.class, codAnimal);
+			Animal a = (Animal) dao.retornarTodos("Animal").get(codAnimal - 1);
+			animais.add(a);
+		}
+
+		Adocao newAdocao = new Adocao(instituicao, pessoa, date, animais);
+		return newAdocao;
+
+	}
+
+	public static int getIdade(Date dataNascimento) {
+		GregorianCalendar today = new GregorianCalendar();
+		GregorianCalendar bday = new GregorianCalendar();
+		GregorianCalendar bdayThisYear = new GregorianCalendar();
+
+		bday.setTime(dataNascimento);
+		bdayThisYear.setTime(dataNascimento);
+		bdayThisYear.set(Calendar.YEAR, today.get(Calendar.YEAR));
+
+		int age = today.get(Calendar.YEAR) - bday.get(Calendar.YEAR);
+
+		if (today.getTimeInMillis() < bdayThisYear.getTimeInMillis())
+			age--;
+
+		return age;
+	}
+}
