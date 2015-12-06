@@ -1,0 +1,94 @@
+package br.edu.qi.loader;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import br.edu.qi.core.dao.Dao;
+import br.edu.qi.dto.RetornoDto;
+
+public class ConsultaXpath extends JFrame {
+
+	public ConsultaXpath() {
+		super("Consulta por XPath");
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(350, 350);
+		GridLayout grid = new GridLayout(5, 3, 10, 10);
+		setLayout(grid);
+
+		JTextArea text = new JTextArea();
+		JButton btn = new JButton("buscar animal por nome");
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				text.setText("clicou nome");
+			}
+		});
+		add(btn);
+
+		btn = new JButton("buscar animal por tipo");
+
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				text.setText("clicou tipo");
+			}
+		});
+		add(btn);
+
+		btn = new JButton("buscar animal por instituicao");
+
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				text.setText("clicou instituicao");
+			}
+		});
+		add(btn);
+
+		btn = new JButton("cadastrar xml no banco");
+
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+					Dao dao = new Dao();
+
+					Loader loader = new Loader();
+
+					for (int i = 1; i <= 3; i++) {
+						RetornoDto model = loader.Load("src/loadtest0" + i + ".xml");
+
+						dao.beginTransaction();
+
+						Parser parser = new Parser(dao);
+						parser.parse(model);
+
+						dao.commit();
+
+					}
+					text.setText("cadastrado com sucesso");
+
+				} catch (Exception ex) {
+					text.setText("deu erro");
+
+				}
+			}
+		});
+		add(btn);
+
+		text.setText("Result");
+		text.setEditable(false);
+		add(text);
+
+		setVisible(true);
+
+	}
+
+}

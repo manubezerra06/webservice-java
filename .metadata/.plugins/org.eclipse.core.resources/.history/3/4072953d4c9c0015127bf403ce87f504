@@ -1,0 +1,14 @@
+package br.edu.qi.loader;
+
+import br.edu.qi.core.dao.Dao;
+import br.edu.qi.dto.RetornoDto;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		ConsultaXpath cx = new ConsultaXpath();
+		cx.setVisible(true);
+
+	}
+}

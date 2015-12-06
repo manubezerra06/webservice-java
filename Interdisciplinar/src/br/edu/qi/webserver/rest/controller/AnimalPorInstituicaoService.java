@@ -12,8 +12,8 @@ import br.edu.qi.core.dao.Dao;
 import br.edu.qi.core.model.Animal;
 import br.edu.qi.core.model.Anuncio;
 import br.edu.qi.core.model.Instituicao;
-import br.edu.qi.loader.dto.AnimalDto;
-import br.edu.qi.loader.dto.RetornoDto;
+import br.edu.qi.dto.AnimalDto;
+import br.edu.qi.dto.RetornoDto;
 
 @Path("/animais")
 public class AnimalPorInstituicaoService {
@@ -96,32 +96,32 @@ public class AnimalPorInstituicaoService {
 		return retorno;
 	}
 
-	@GET
-	@Path("/nao-adotados")
-	@Produces(MediaType.APPLICATION_XML)
-	public RetornoDto getAnimaisNaoAdotados() {
-
-		Dao dao = new Dao();
-		List<Animal> animais = dao.retornarTodos("Animal");
-
-		RetornoDto retorno = new RetornoDto();
-
-		for (Animal animal : animais) {
-			Anuncio anuncio = animal.getAnuncio();
-
-			if (anuncio != null) {
-
-				AnimalDto a = new AnimalDto();
-				a.setDisponivelAdocao(animal.isDisponivelAdocao());
-				a.setGenero(animal.getGenero());
-				a.setIdade(animal.getIdade());
-				a.setNomeAdotivo(animal.getNomeAdotivo());
-				a.setTipo(animal.getTipo());
-				retorno.getAnimais().add(a);
-
-			}
-		}
-
-		return retorno;
-	}
+//	@GET
+//	@Path("/nao-adotados")
+//	@Produces(MediaType.APPLICATION_XML)
+//	public RetornoDto getAnimaisNaoAdotados() {
+//
+//		Dao dao = new Dao();
+//		List<Animal> animais = dao.retornarTodos("Animal");
+//
+//		RetornoDto retorno = new RetornoDto();
+//
+//		for (Animal animal : animais) {
+//			Anuncio anuncio = animal.getAnuncio();
+//
+//			if (anuncio != null) {
+//
+//				AnimalDto a = new AnimalDto();
+//				a.setDisponivelAdocao(animal.isDisponivelAdocao());
+//				a.setGenero(animal.getGenero());
+//				a.setIdade(animal.getIdade());
+//				a.setNomeAdotivo(animal.getNomeAdotivo());
+//				a.setTipo(animal.getTipo());
+//				retorno.getAnimais().add(a);
+//
+//			}
+//		}
+//
+//		return retorno;
+//	}
 }

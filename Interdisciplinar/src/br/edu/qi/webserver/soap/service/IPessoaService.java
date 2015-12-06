@@ -1,6 +1,14 @@
 package br.edu.qi.webserver.soap.service;
 
+import java.util.List;
+
+import javax.jws.WebService;
+
+import br.edu.qi.dto.PessoaRetorno;
+
+@WebService
 public interface IPessoaService {
 
-	void getPessoaComMaisAdocao(int mes, int ano);
+	public List<PessoaRetorno> getPessoaComMaisAdocao(int mes, int ano);
+	
 }

@@ -1,0 +1,11 @@
+package br.edu.qi.webserver.soap.service;
+
+import java.util.List;
+
+import br.edu.qi.loader.dto.PessoaRetorno;
+
+public interface IPessoaService {
+
+	public List<PessoaRetorno> getPessoaComMaisAdocao(int mes, int ano);
+	
+}

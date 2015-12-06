@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server port="8080">
+  <module context="cliente-rest" name="cliente-rest" path="C:/Users/ferna_000/Desktop/webservice-java/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/cliente-rest" type="static"/>
+</server>

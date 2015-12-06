@@ -6,7 +6,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import br.edu.qi.loader.dto.RetornoDto;
+import br.edu.qi.dto.RetornoDto;
 
 public class Loader {
 

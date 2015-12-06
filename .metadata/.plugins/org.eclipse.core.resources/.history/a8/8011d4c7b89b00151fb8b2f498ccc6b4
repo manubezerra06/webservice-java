@@ -1,0 +1,46 @@
+package br.edu.qi.webserver.rest.controller;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import br.edu.qi.loader.dto.RetornoDto;
+
+@Path("/racas")
+public class RacaService {
+
+	/*
+	 * Parte 5
+	 * 
+	 * Desenvolver Web services Rest:
+	 * 
+	 * a. Um Web service as ra�as mais adotadas. Passar como par�metro o
+	 * tipo
+	 * 
+	 * b. Consumir o Web service anterior em qualquer outra tecnologia.
+	 * 
+	 * animal, ou seja, se � c�o ou Gato. O retorno pode ser em qualquer
+	 * formato
+	 * 
+	 * Desenvolver um exemplo mostrando os dados retornados pelo WS.
+	 * 
+	 * Sugest�o: php, .NET,...
+	 **/
+
+	@GET
+	@Path("/{tipo}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getRacasMaisAdotadas(@PathParam("tipo") String tipo) {
+
+		return Response.status(200).header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+				.header("Access-Control-Allow-Credentials", "true")
+				.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+				.header("Access-Control-Max-Age", "1209600").entity(new RetornoDto()).build();
+
+	}
+
+}

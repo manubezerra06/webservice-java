@@ -1,0 +1,24 @@
+package br.edu.qi.loader.dto;
+
+public class PessoaRetornoItem {
+
+	private String nomePessoa;
+	private int quantidadeAdocoes;
+
+	public String getNomePessoa() {
+		return nomePessoa;
+	}
+
+	public void setNomePessoa(String nomePessoa) {
+		this.nomePessoa = nomePessoa;
+	}
+
+	public int getQuantidadeAdocoes() {
+		return quantidadeAdocoes;
+	}
+
+	public void setQuantidadeAdocoes(int quantidadeAdocoes) {
+		this.quantidadeAdocoes = quantidadeAdocoes;
+	}
+
+}

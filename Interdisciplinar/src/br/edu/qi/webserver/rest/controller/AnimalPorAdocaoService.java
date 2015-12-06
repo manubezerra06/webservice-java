@@ -11,14 +11,14 @@ import javax.ws.rs.core.MediaType;
 import br.edu.qi.core.dao.Dao;
 import br.edu.qi.core.model.Adocao;
 import br.edu.qi.core.model.Animal;
-import br.edu.qi.loader.dto.AnimalDto;
-import br.edu.qi.loader.dto.RetornoDto;
+import br.edu.qi.dto.AnimalDto;
+import br.edu.qi.dto.RetornoDto;
 
 @Path("/animais")
 public class AnimalPorAdocaoService {
 
 	@GET
-	@Path("/adocao")
+	@Path("/nao-adotados")
 	@Produces(MediaType.APPLICATION_JSON)
 	public RetornoDto getNaoAdotados() {
 
@@ -47,9 +47,9 @@ public class AnimalPorAdocaoService {
 
 	
 	@GET
-	@Path("/adocao/{tipo}")
+	@Path("/nao-adotados/{tipo}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public RetornoDto getNaoAdotados(@PathParam("tipo") String tipo) {
+	public RetornoDto getNaoAdotadosPorTipo(@PathParam("tipo") String tipo) {
 
 		Dao dao = new Dao();
 

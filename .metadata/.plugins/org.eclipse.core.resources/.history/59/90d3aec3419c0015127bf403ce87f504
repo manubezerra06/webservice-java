@@ -1,0 +1,26 @@
+package br.edu.qi.loader.dto;
+
+import java.util.List;
+
+public class PessoaRetorno {
+
+	private String nomeInstituicao;
+	private List<PessoaRetornoItem> itens;
+
+	public List<PessoaRetornoItem> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<PessoaRetornoItem> itens) {
+		this.itens = itens;
+	}
+
+	public String getNomeInstituicao() {
+		return nomeInstituicao;
+	}
+
+	public void setNomeInstituicao(String nomeInstituicao) {
+		this.nomeInstituicao = nomeInstituicao;
+	}
+
+}

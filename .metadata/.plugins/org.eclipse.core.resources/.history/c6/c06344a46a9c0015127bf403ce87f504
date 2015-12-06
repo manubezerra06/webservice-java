@@ -1,0 +1,12 @@
+package br.edu.qi.client;
+
+import javax.xml.ws.Endpoint;
+
+public class AnimalClient {
+
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

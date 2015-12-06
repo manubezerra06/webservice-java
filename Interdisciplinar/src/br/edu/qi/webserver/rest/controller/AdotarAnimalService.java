@@ -14,9 +14,9 @@ import javax.ws.rs.core.MediaType;
 import br.edu.qi.core.dao.Dao;
 import br.edu.qi.core.model.Adocao;
 import br.edu.qi.core.model.Animal;
+import br.edu.qi.dto.AdocaoDto;
+import br.edu.qi.dto.RetornoDto;
 import br.edu.qi.loader.Parser;
-import br.edu.qi.loader.dto.AdocaoDto;
-import br.edu.qi.loader.dto.RetornoDto;
 
 @Path("/adocao")
 public class AdotarAnimalService {

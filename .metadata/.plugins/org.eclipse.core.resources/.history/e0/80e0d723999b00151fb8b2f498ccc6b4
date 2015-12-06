@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Cliente Rest</title>
+</head>
+<body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js" />
+<script>
+
+$(function(){
+	
+	
+	$.get("http://localhost:8081/interdisciplinar/pet/xmlsample", function(data){
+		
+		
+		
+		
+	})
+	
+	
+});
+
+
+
+
+</script>
+</body>
+</html>

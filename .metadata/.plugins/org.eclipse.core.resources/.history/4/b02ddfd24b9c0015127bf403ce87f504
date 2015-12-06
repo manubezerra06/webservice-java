@@ -1,0 +1,33 @@
+package br.edu.qi.loader;
+
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class ConsultaXpath extends JFrame {
+
+	public ConsultaXpath() {
+		super("Consulta por XPath");
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(350, 350);
+		GridLayout grid = new GridLayout(5, 3, 10, 10);
+		setLayout(grid);
+
+		add(new JButton("buscar animal por nome"));
+		add(new JButton("buscar animal por tipo"));
+		add(new JButton("buscar animal por instituicao"));
+
+		JTextArea text = new JTextArea();
+		text.setText("Result");
+		text.setEditable(false);
+		add(text);
+
+		setVisible(true);
+
+	}
+
+}

@@ -11,13 +11,13 @@ import br.edu.qi.core.model.Anuncio;
 import br.edu.qi.core.model.Instituicao;
 import br.edu.qi.core.model.Pessoa;
 import br.edu.qi.core.model.Usuario;
-import br.edu.qi.loader.dto.AdocaoDto;
-import br.edu.qi.loader.dto.AnimalDto;
-import br.edu.qi.loader.dto.AnuncioDto;
-import br.edu.qi.loader.dto.InstituicaoDto;
-import br.edu.qi.loader.dto.PessoaDto;
-import br.edu.qi.loader.dto.UsuarioDto;
-import br.edu.qi.loader.dto.RetornoDto;
+import br.edu.qi.dto.AdocaoDto;
+import br.edu.qi.dto.AnimalDto;
+import br.edu.qi.dto.AnuncioDto;
+import br.edu.qi.dto.InstituicaoDto;
+import br.edu.qi.dto.PessoaDto;
+import br.edu.qi.dto.RetornoDto;
+import br.edu.qi.dto.UsuarioDto;
 
 public class Parser {
 

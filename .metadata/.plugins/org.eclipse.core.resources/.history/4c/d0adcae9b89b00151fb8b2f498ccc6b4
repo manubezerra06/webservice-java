@@ -1,0 +1,23 @@
+package br.edu.qi.loader.dto;
+
+public class TopRacaDto {
+
+	private String raca;
+	private int quantidade;
+
+	public String getRaca() {
+		return raca;
+	}
+
+	public void setRaca(String raca) {
+		this.raca = raca;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+}

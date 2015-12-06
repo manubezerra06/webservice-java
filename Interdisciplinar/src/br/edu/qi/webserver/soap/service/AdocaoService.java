@@ -14,9 +14,9 @@ import br.edu.qi.core.model.Adocao;
 import br.edu.qi.core.model.Animal;
 import br.edu.qi.core.model.Instituicao;
 import br.edu.qi.core.model.Pessoa;
-import br.edu.qi.loader.dto.AdocaoServiceDto;
-import br.edu.qi.loader.dto.PessoaDto;
-import br.edu.qi.loader.dto.RetornoAdocaoService;
+import br.edu.qi.dto.AdocaoServiceDto;
+import br.edu.qi.dto.PessoaDto;
+import br.edu.qi.dto.RetornoAdocaoService;
 
 @WebService(endpointInterface = "br.edu.qi.webserver.soap.service.IAdocaoService")
 public class AdocaoService implements IAdocaoService {
@@ -25,15 +25,9 @@ public class AdocaoService implements IAdocaoService {
 
 		/*
 		 * Um Web service que adote um animal. Cadastrar a pessoa, caso ela
-		 * n�o
-		 * 
-		 * seja cadastrada. Validar se a idade � superior a 16 anos para
-		 * efetuar o
-		 * 
-		 * cadastro e consequentemente a ado��o. Retornar uma mensagem
-		 * 
+		 * n�o seja cadastrada. Validar se a idade � superior a 16 anos para
+		 * efetuar o cadastro e consequentemente a ado��o. Retornar uma mensagem
 		 * indicando o que aconteceu. Enviar os dados para o Web service
-		 * 
 		 * necess�rios para o cadastro .
 		 */
 

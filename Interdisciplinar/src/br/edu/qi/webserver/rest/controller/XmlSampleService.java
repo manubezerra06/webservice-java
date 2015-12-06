@@ -12,13 +12,13 @@ import javax.ws.rs.core.MediaType;
 
 import br.edu.qi.core.dao.Dao;
 import br.edu.qi.core.model.Animal;
-import br.edu.qi.loader.dto.AdocaoDto;
-import br.edu.qi.loader.dto.AnimalDto;
-import br.edu.qi.loader.dto.AnuncioDto;
-import br.edu.qi.loader.dto.InstituicaoDto;
-import br.edu.qi.loader.dto.PessoaDto;
-import br.edu.qi.loader.dto.UsuarioDto;
-import br.edu.qi.loader.dto.RetornoDto;
+import br.edu.qi.dto.AdocaoDto;
+import br.edu.qi.dto.AnimalDto;
+import br.edu.qi.dto.AnuncioDto;
+import br.edu.qi.dto.InstituicaoDto;
+import br.edu.qi.dto.PessoaDto;
+import br.edu.qi.dto.RetornoDto;
+import br.edu.qi.dto.UsuarioDto;
 
 @Path("/pet")
 public class XmlSampleService {

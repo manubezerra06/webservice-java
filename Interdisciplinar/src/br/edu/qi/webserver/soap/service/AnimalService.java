@@ -8,8 +8,7 @@ import javax.jws.WebService;
 import br.edu.qi.core.dao.Dao;
 import br.edu.qi.core.model.Adocao;
 import br.edu.qi.core.model.Animal;
-import br.edu.qi.loader.dto.AnimalServiceDto;
-
+import br.edu.qi.dto.AnimalServiceDto;
 
 @WebService(endpointInterface = "br.edu.qi.webserver.soap.service.IAnimalService")
 public class AnimalService implements IAnimalService {

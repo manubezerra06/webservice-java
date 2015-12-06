@@ -20,7 +20,6 @@
 <fullyQualifiedTypeName name="br.edu.qi.core.dto.UsuarioDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.dto.AdocaoDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.dto.AnuncioDto"/>
-<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AdocaoDto"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElementWrapper"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AnuncioDto"/>
@@ -29,7 +28,6 @@
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.UsuarioDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.model.Pessoa"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="br.edu.qi.core.dao.Dao"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.NaturalId"/>
 <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="javax.persistence.MapsId"/>
@@ -42,12 +40,23 @@
 <fullyQualifiedTypeName name="br.edu.qi.core.model.Anuncio"/>
 <fullyQualifiedTypeName name="javax.jws.WebService"/>
 <fullyQualifiedTypeName name="br.edu.qi.core.model.Adocao"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AdocaoServiceDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.PessoaDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.webserver.soap.service.PessoaService"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.AnimalServiceDto"/>
 <fullyQualifiedTypeName name="br.edu.qi.loader.dto.RetornoAdocaoService"/>
+<fullyQualifiedTypeName name="javax.xml.ws.Response"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.Response"/>
+<fullyQualifiedTypeName name="br.edu.qi.core.dao.Dao"/>
+<fullyQualifiedTypeName name="br.edu.qi.core.model.Animal"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="br.edu.qi.webserver.rest.controller.RacaService"/>
+<fullyQualifiedTypeName name="br.edu.qi.webserver.rest.controller.RacaService.TopRaca"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
+<fullyQualifiedTypeName name="br.edu.qi.loader.dto.TopRacaDto"/>
 </qualifiedTypeNameHistroy>
