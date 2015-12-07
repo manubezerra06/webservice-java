@@ -23,6 +23,36 @@ public class AnimalClient {
 
 	public static void main(String[] args) {
 		
+		testeAdocaoService();
+
+		testeAnimalService();
+
+		testePessoaService();
+	}
+
+	private static void testePessoaService() {
+		PessoaServiceService ps = new PessoaServiceService();
+		IPessoaService pessoaService = ps.getPessoaServicePort();
+
+		List<PessoaRetorno> pessoas = pessoaService.getPessoaComMaisAdocao(12, 2015);
+
+		for (PessoaRetorno pessoaRetorno : pessoas) {
+			System.out.println(pessoaRetorno.getNomeInstituicao());
+			System.out.println(pessoaRetorno.getItens());
+		}
+	}
+
+	private static void testeAnimalService() {
+		AnimalServiceService as = new AnimalServiceService();
+		IAnimalService animalService = as.getAnimalServicePort();
+
+		List<AnimalServiceDto> animais = animalService.getAnimais();
+		for (AnimalServiceDto animalServiceDto : animais) {
+			System.out.println(animalServiceDto.getNomeAnimal());
+		}
+	}
+
+	private static void testeAdocaoService() {
 		AdocaoServiceService a = new AdocaoServiceService();
 		IAdocaoService adocaoService = a.getAdocaoServicePort();
 
@@ -37,26 +67,10 @@ public class AnimalClient {
 
 		RetornoAdocaoService retorno = adocaoService.adotarAnimal(adocaoServiceDto);
 
+
+		System.out.println(retorno.getErro());
+
 		System.out.println(retorno);
-
-		AnimalServiceService as = new AnimalServiceService();
-		IAnimalService animalService = as.getAnimalServicePort();
-
-		List<AnimalServiceDto> animais = animalService.getAnimais();
-		for (AnimalServiceDto animalServiceDto : animais) {
-			System.out.println(animalServiceDto.getNomeAnimal());
-		}
-
-		PessoaServiceService ps = new PessoaServiceService();
-		IPessoaService pessoaService = ps.getPessoaServicePort();
-
-		List<PessoaRetorno> pessoas = pessoaService.getPessoaComMaisAdocao(12, 2015);
-
-		for (PessoaRetorno pessoaRetorno : pessoas) {
-			System.out.println(pessoaRetorno.getNomeInstituicao());
-			System.out.println(pessoaRetorno.getItens());
-		}
-
 	}
 
 	public static XMLGregorianCalendar toXMLGregorianCalendar(Date date) {
@@ -66,7 +80,7 @@ public class AnimalClient {
 		try {
 			xmlCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCalendar);
 		} catch (DatatypeConfigurationException ex) {
-
+			
 		}
 		return xmlCalendar;
 	}

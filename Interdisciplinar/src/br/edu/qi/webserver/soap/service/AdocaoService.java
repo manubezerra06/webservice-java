@@ -25,7 +25,7 @@ public class AdocaoService implements IAdocaoService {
 
 		/*
 		 * Um Web service que adote um animal. Cadastrar a pessoa, caso ela
-		 * nï¿½o seja cadastrada. Validar se a idade ï¿½ superior a 16 anos para
+		 * não seja cadastrada. Validar se a idade é superior a 16 anos para
 		 * efetuar o cadastro e consequentemente a adoï¿½ï¿½o. Retornar uma mensagem
 		 * indicando o que aconteceu. Enviar os dados para o Web service
 		 * necessï¿½rios para o cadastro .
@@ -50,7 +50,7 @@ public class AdocaoService implements IAdocaoService {
 			}
 
 			String key = animal.getTipo();
-			// tipos.merge(key, 1, (a,b) -> a+b); //lambda nï¿½o funciona :(
+			// tipos.merge(key, 1, (a,b) -> a+b); //lambda não funciona :(
 			int count = tipos.getOrDefault(key, 0);
 			count += 1;
 			tipos.put(key, count);

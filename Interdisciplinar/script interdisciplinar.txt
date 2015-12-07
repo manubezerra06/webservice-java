@@ -1,3 +1,11 @@
+wsdl 
+
+C:\Users\ferna_000\Desktop\webservice-java\cliente-soap\src>"C:\Program Files\Java\jdk1.8.0_45\bin\wsimport.exe" -s . http://localhost/8081/pessoaWs?wsdl
+
+
+
+
+
 para excluir todas as tabelas:
 
 SET FOREIGN_KEY_CHECKS = 0;
