@@ -10,7 +10,7 @@ public class AdocaoDto {
 	private int codInstituicao;
 	private int codPessoa;
 	private Date date;
-	private List<Integer> CodAnimais;
+	private List<Integer> codAnimais;
 
 	@XmlElement
 	public int getCodInstituicao() {
@@ -43,10 +43,10 @@ public class AdocaoDto {
 
 	@XmlElement
 	public List<Integer> getCodAnimais() {
-		return CodAnimais;
+		return codAnimais;
 	}
 
 	public void setCodAnimais(List<Integer> codAnimais) {
-		CodAnimais = codAnimais;
+		this.codAnimais = codAnimais;
 	}
 }

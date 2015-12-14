@@ -1,7 +1,0 @@
-127.0.0.1 - - [26/Nov/2015:00:00:47 -0200] "GET / HTTP/1.1" 404 994
-0:0:0:0:0:0:0:1 - - [26/Nov/2015:00:01:02 -0200] "GET /interdisciplinar/animais/instituicao/cnpj/009584738748700001-88 HTTP/1.1" 200 143
-0:0:0:0:0:0:0:1 - - [26/Nov/2015:00:01:11 -0200] "GET /interdisciplinar/animais/instituicao/cnpj/009584738748700001-88 HTTP/1.1" 200 143
-127.0.0.1 - - [26/Nov/2015:00:01:27 -0200] "GET / HTTP/1.1" 404 994
-0:0:0:0:0:0:0:1 - - [26/Nov/2015:00:03:22 -0200] "GET /interdisciplinar/animais/instituicao/cnpj/009584738748700001-88 HTTP/1.1" 200 143
-0:0:0:0:0:0:0:1 - - [26/Nov/2015:00:03:35 -0200] "GET /interdisciplinar/animais/instituicao/cnpj/00958473874870001-88 HTTP/1.1" 200 451
-0:0:0:0:0:0:0:1 - - [26/Nov/2015:00:04:19 -0200] "GET /interdisciplinar/animais/instituicao/nome/Onda%20Animal HTTP/1.1" 200 304

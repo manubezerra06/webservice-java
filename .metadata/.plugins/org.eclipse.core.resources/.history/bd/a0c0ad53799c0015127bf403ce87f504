@@ -1,0 +1,80 @@
+package br.edu.qi.client;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import br.edu.qi.webserver.soap.service.AdocaoServiceDto;
+import br.edu.qi.webserver.soap.service.AdocaoServiceService;
+import br.edu.qi.webserver.soap.service.AnimalServiceDto;
+import br.edu.qi.webserver.soap.service.AnimalServiceService;
+import br.edu.qi.webserver.soap.service.IAdocaoService;
+import br.edu.qi.webserver.soap.service.IAnimalService;
+import br.edu.qi.webserver.soap.service.IPessoaService;
+import br.edu.qi.webserver.soap.service.PessoaRetorno;
+import br.edu.qi.webserver.soap.service.PessoaServiceService;
+import br.edu.qi.webserver.soap.service.RetornoAdocaoService;
+
+public class AnimalClient {
+
+	public static void main(String[] args) {
+		
+		testeAdocaoService();
+
+		AnimalServiceService as = new AnimalServiceService();
+		IAnimalService animalService = as.getAnimalServicePort();
+
+		List<AnimalServiceDto> animais = animalService.getAnimais();
+		for (AnimalServiceDto animalServiceDto : animais) {
+			System.out.println(animalServiceDto.getNomeAnimal());
+		}
+
+		PessoaServiceService ps = new PessoaServiceService();
+		IPessoaService pessoaService = ps.getPessoaServicePort();
+
+		List<PessoaRetorno> pessoas = pessoaService.getPessoaComMaisAdocao(12, 2015);
+
+		for (PessoaRetorno pessoaRetorno : pessoas) {
+			System.out.println(pessoaRetorno.getNomeInstituicao());
+			System.out.println(pessoaRetorno.getItens());
+		}
+	}
+
+	private static void testeAdocaoService() {
+		AdocaoServiceService a = new AdocaoServiceService();
+		IAdocaoService adocaoService = a.getAdocaoServicePort();
+
+		AdocaoServiceDto adocaoServiceDto = new AdocaoServiceDto();
+		adocaoServiceDto.setCodPessoa(1);
+		adocaoServiceDto.setCodInstituicao(1);
+		XMLGregorianCalendar data = toXMLGregorianCalendar(new Date());
+
+		adocaoServiceDto.setDate(data);
+		adocaoServiceDto.getCodAnimais().add(1);
+		adocaoServiceDto.getCodAnimais().add(2);
+
+		RetornoAdocaoService retorno = adocaoService.adotarAnimal(adocaoServiceDto);
+
+
+		System.out.println(retorno.getErro());
+
+		System.out.println(retorno);
+	}
+
+	public static XMLGregorianCalendar toXMLGregorianCalendar(Date date) {
+		GregorianCalendar gCalendar = new GregorianCalendar();
+		gCalendar.setTime(date);
+		XMLGregorianCalendar xmlCalendar = null;
+		try {
+			xmlCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCalendar);
+		} catch (DatatypeConfigurationException ex) {
+			
+		}
+		return xmlCalendar;
+	}
+
+}

@@ -11,38 +11,38 @@ public class AnimalDto {
 	private boolean disponivelAdocao;
 	private String raca;
 
+	@XmlElement
 	public String getNomeAdotivo() {
 		return nomeAdotivo;
 	}
 
-	@XmlElement
 	public void setNomeAdotivo(String nomeAdotivo) {
 		this.nomeAdotivo = nomeAdotivo;
 	}
 
+	@XmlElement
 	public String getTipo() {
 		return tipo;
 	}
 
-	@XmlElement
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
+	@XmlElement
 	public char getGenero() {
 		return genero;
 	}
 
-	@XmlElement
 	public void setGenero(char genero) {
 		this.genero = genero;
 	}
 
+	@XmlElement
 	public int getIdade() {
 		return idade;
 	}
 
-	@XmlElement
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
@@ -56,11 +56,12 @@ public class AnimalDto {
 		this.disponivelAdocao = disponivelAdocao;
 	}
 
+	@XmlElement
 	public String getRaca() {
 		return raca;
 	}
 
 	public void setRaca(String raca) {
 		this.raca = raca;
-	}	
+	}
 }

@@ -1,13 +1,61 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xmlModel>
+<retornoDto>
 	<animais>
 		<animal>
 			<disponivelAdocao>true</disponivelAdocao>
 			<genero>109</genero>
-			<idade>3</idade>
-			<nomeAdotivo>toto</nomeAdotivo>
+			<idade>1</idade>
+			<nomeAdotivo>outro toto</nomeAdotivo>
 			<tipo>Cão</tipo>
 			<raca>viralata</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>true</disponivelAdocao>
+			<genero>109</genero>
+			<idade>2</idade>
+			<nomeAdotivo>vaquinha</nomeAdotivo>
+			<tipo>Gato</tipo>
+			<raca>siames</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>true</disponivelAdocao>
+			<genero>109</genero>
+			<idade>1</idade>
+			<nomeAdotivo>amarelinho</nomeAdotivo>
+			<tipo>Gato</tipo>
+			<raca>persa</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>true</disponivelAdocao>
+			<genero>109</genero>
+			<idade>1</idade>
+			<nomeAdotivo>shira</nomeAdotivo>
+			<tipo>Gato</tipo>
+			<raca>persa</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>false</disponivelAdocao>
+			<genero>109</genero>
+			<idade>3</idade>
+			<nomeAdotivo>mineneninho</nomeAdotivo>
+			<tipo>Cão</tipo>
+			<raca>labrador</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>false</disponivelAdocao>
+			<genero>109</genero>
+			<idade>4</idade>
+			<nomeAdotivo>Neno</nomeAdotivo>
+			<tipo>Cão</tipo>
+			<raca>viralata</raca>
+		</animal>
+		<animal>
+			<disponivelAdocao>true</disponivelAdocao>
+			<genero>109</genero>
+			<idade>3</idade>
+			<nomeAdotivo>baruki</nomeAdotivo>
+			<tipo>Cão</tipo>
+			<raca>ruski</raca>
 		</animal>
 		<animal>
 			<disponivelAdocao>true</disponivelAdocao>
@@ -53,11 +101,16 @@
 			<perfilAcesso>Eduardo Reus</perfilAcesso>
 			<senha>98654332</senha>
 		</usuario>
+		<usuario>
+			<email>zeus@gmail.com</email>
+			<perfilAcesso>Zeus</perfilAcesso>
+			<senha>8734676</senha>
+		</usuario>
 	</usuarios>
 	<instituicoes>
 		<instituicao>
 			<cnpj>009005003390001-88</cnpj>
-			<email>onda@gamil.com</email>
+			<email>onda@gmail.com</email>
 			<nome>Onda Animal</nome>
 			<telefone>34175999</telefone>
 			<tipo>ong</tipo>
@@ -65,11 +118,11 @@
 		</instituicao>
 		<instituicao>
 			<cnpj>00958473874870001-88</cnpj>
-			<email>meubixoderua@gamil.com</email>
-			<nome>Meu bixo de rua</nome>
+			<email>meubichoderua@gmail.com</email>
+			<nome>Meu bicho de rua</nome>
 			<telefone>34715439</telefone>
 			<tipo>ong</tipo>
 			<endereco>rua flores da cunha 123</endereco>
 		</instituicao>
 	</instituicoes>
-</xmlModel>
+</retornoDto>

@@ -73,7 +73,7 @@ public class Parser {
 		for (AnimalDto animal : model.getAnimais()) {
 
 			Animal a = new Animal(animal.getNomeAdotivo(), animal.getTipo(), animal.getGenero(), animal.getIdade(),
-					animal.isDisponivelAdocao());
+					animal.isDisponivelAdocao(), animal.getRaca());
 			dao.salvar(a);
 		}
 

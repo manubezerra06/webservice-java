@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "animal", catalog = "bdqi" )
+@Table(name = "animal", catalog = "interdisciplinardb" )
 public class Animal implements java.io.Serializable {
 
 	private static final long serialVersionUID = 5690101673236521396L;
@@ -25,7 +25,7 @@ public class Animal implements java.io.Serializable {
 	private boolean disponivelAdocao;
 	private Adocao adocao;
 	private Anuncio anuncio;
-	private String Raca;
+	private String raca;
 
 	public Animal() {
 
@@ -33,13 +33,14 @@ public class Animal implements java.io.Serializable {
 
 	}
 
-	public Animal(String nomeAdotivo, String tipo, char genero, int idade, boolean disponivelAdocao) {
+	public Animal(String nomeAdotivo, String tipo, char genero, int idade, boolean disponivelAdocao, String raca) {
 		super();
 		this.nomeAdotivo = nomeAdotivo;
 		this.tipo = tipo;
 		this.genero = genero;
 		this.idade = idade;
 		this.disponivelAdocao = disponivelAdocao;
+		this.raca = raca;
 	}
 
 	@Id
@@ -122,10 +123,10 @@ public class Animal implements java.io.Serializable {
 	}
 
 	public String getRaca() {
-		return Raca;
+		return raca;
 	}
 
 	public void setRaca(String raca) {
-		Raca = raca;
+		this.raca = raca;
 	}
 }

@@ -1,0 +1,16 @@
+127.0.0.1 - - [07/Dec/2015:19:13:35 -0200] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [07/Dec/2015:19:14:06 -0200] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [07/Dec/2015:19:14:35 -0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:19:15:16 -0200] "GET /interdisciplinar/pet/xmlsample HTTP/1.1" 200 2363
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:19:15:17 -0200] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:19:22:13 -0200] "GET /interdisciplinar/animaisnao-adotados HTTP/1.1" 404 1256
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:19:24:28 -0200] "GET /interdisciplinar/racas/c%C3%A3o HTTP/1.1" 500 13604
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:19:39:03 -0200] "GET /interdisciplinar/animais/nao-adotados HTTP/1.1" 500 13668
+127.0.0.1 - - [07/Dec/2015:19:42:52 -0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:19:43:23 -0200] "GET /interdisciplinar/pet/xmlsample HTTP/1.1" 200 2363
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:19:43:23 -0200] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:19:45:40 -0200] "GET /interdisciplinar/animais/nao-adotados HTTP/1.1" 500 13878
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:20:12:31 -0200] "GET /interdisciplinar/raca/c%C3%A3o HTTP/1.1" 404 1232
+127.0.0.1 - - [07/Dec/2015:20:13:51 -0200] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [07/Dec/2015:20:18:21 -0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [07/Dec/2015:20:20:38 -0200] "GET /interdisciplinar/animais/nao-adotados HTTP/1.1" 500 13878

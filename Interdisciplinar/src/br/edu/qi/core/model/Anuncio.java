@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "anuncio", catalog = "bdqi")
+@Table(name = "anuncio", catalog = "interdisciplinardb")
 public class Anuncio implements java.io.Serializable {
 
 	private static final long serialVersionUID = 2615727046294502992L;

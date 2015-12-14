@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
@@ -22,7 +23,9 @@ import br.edu.qi.dto.RetornoDto;
 public class ConsultaXpath extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JTextArea text;
+	private JTextArea textArea;
+
+	private JTextField campoBusca;
 
 	public ConsultaXpath() {
 		super("Consulta por XPath");
@@ -30,13 +33,21 @@ public class ConsultaXpath extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(350, 350);
 		GridLayout grid = new GridLayout(5, 3, 10, 10);
+
 		setLayout(grid);
 
-		text = new JTextArea();
+		campoBusca = new JTextField();
+
+		this.add(campoBusca);
+
+		textArea = new JTextArea();
 		JButton btn = new JButton("buscar animal por nome");
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				filtrar("/xmlModel/animais/animal/nomeAdotivo");
+				if (campoBusca.getText().isEmpty())
+					return;
+				filtrar("/retornoDto/animais/animal[nomeAdotivo='"
+						+ campoBusca.getText() + "']");
 			}
 		});
 		add(btn);
@@ -45,16 +56,22 @@ public class ConsultaXpath extends JFrame {
 
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				filtrar("/xmlModel/animais/animal/tipo");
+				if (campoBusca.getText().isEmpty())
+					return;
+				filtrar("/retornoDto/animais/animal[tipo = '" + campoBusca.getText()
+						+ "']");
 			}
 		});
 		add(btn);
 
-		btn = new JButton("buscar animal por instituicao");
+		btn = new JButton("buscar animal por raça");
 
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				filtrar("/xmlModel/animais/animal/instituicao");
+				if (campoBusca.getText().isEmpty())
+					return;
+				filtrar("/retornoDto/animais/animal[raca = '" + campoBusca.getText()
+						+ "']");
 			}
 		});
 		add(btn);
@@ -69,18 +86,21 @@ public class ConsultaXpath extends JFrame {
 		});
 		add(btn);
 
-		text.setText("Result");
-		text.setEditable(false);
-		add(text);
+		textArea.setText("Result");
+		textArea.setEditable(false);
+		add(textArea);
 
 		setVisible(true);
 	}
 
 	void filtrar(String expression) {
 		try {
-			DocumentBuilderFactory domBuilder = DocumentBuilderFactory.newInstance();
+			DocumentBuilderFactory domBuilder = DocumentBuilderFactory
+					.newInstance();
 			DocumentBuilder builder = domBuilder.newDocumentBuilder();
-			Document doc = builder.parse("src/loadtest01.xml");
+			
+			String path = new java.io.File("").getAbsolutePath() + "\\src\\loadtest01.xml";
+			Document doc = builder.parse(path);
 			XPath xpath = XPathFactory.newInstance().newXPath();
 			javax.xml.xpath.XPathExpression expr = xpath.compile(expression);
 			Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -89,10 +109,10 @@ public class ConsultaXpath extends JFrame {
 			for (int i = 0; i < nodes.getLength(); i++) {
 				textResult += nodes.item(i).getTextContent() + "\n";
 			}
-			text.setText(textResult);
+			textArea.setText(textResult);
 		} catch (Exception e) {
 			e.printStackTrace();
-			text.setText("Ocorreu um erro ao filtrar por tipo");
+			textArea.setText("Ocorreu um erro ao filtrar por tipo");
 		}
 	}
 
@@ -103,19 +123,20 @@ public class ConsultaXpath extends JFrame {
 			Loader loader = new Loader();
 
 			for (int i = 1; i <= 3; i++) {
-				RetornoDto model = loader.Load("src/loadtest0" + i + ".xml");
+				String path = new java.io.File("").getAbsolutePath();
+				RetornoDto modelDto = loader.Load(path + "\\src\\loadtest0" + i + ".xml");
 
 				dao.beginTransaction();
 
 				Parser parser = new Parser(dao);
-				parser.parse(model);
+				parser.parse(modelDto);
 
 				dao.commit();
 			}
-			text.setText("cadastrado com sucesso");
+			textArea.setText("cadastrado com sucesso");
 
 		} catch (Exception ex) {
-			text.setText("deu erro");
+			textArea.setText("deu erro");
 		}
 	}
 }
